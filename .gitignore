@@ -1,0 +1,6 @@
+target/
+arquillian-ear-it-jar/target/
+arquillian-ear-it-ejb/target/
+arquillian-ear-it-web/target/
+arquillian-ear-it-ear/target/
+arquillian-ear-it-it/target/
