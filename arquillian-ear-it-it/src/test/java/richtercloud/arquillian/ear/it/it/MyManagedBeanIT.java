@@ -29,6 +29,8 @@ public class MyManagedBeanIT {
 //                .addAsModule(Maven.configureResolver().workOffline().resolve("richtercloud:arquillian-ear-it-web:war:1.0-SNAPSHOT").withoutTransitivity().asSingle(WebArchive.class))
 //                .addAsModule(Maven.configureResolver().workOffline().resolve("richtercloud:arquillian-ear-it-ejb:ejb:1.0-SNAPSHOT").withoutTransitivity().asSingle(JavaArchive.class));
         EnterpriseArchive retValue = Maven.configureResolver().workOffline().resolve("richtercloud:arquillian-ear-it-ear:ear:1.0-SNAPSHOT").withoutTransitivity().asSingle(EnterpriseArchive.class);
+//        retValue.addAsLibrary(Maven.configureResolver().workOffline().resolve("richtercloud:arquillian-ear-it-jar:jar:1.0-SNAPSHOT").withoutTransitivity().asSingle(JavaArchive.class));
+//        retValue.addAsApplicationResource("glassfish-application.xml");
         retValue.writeTo(System.out, Formatters.VERBOSE);
         return retValue;
     }

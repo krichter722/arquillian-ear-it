@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server name="localhost.localdomain" xmlns="urn:jboss:domain:1.0">
+    <extensions>
+        <extension module="org.jboss.as.clustering.infinispan"/>  
+        <extension module="org.jboss.as.connector"/>  
+        <extension module="org.jboss.as.deployment-scanner"/>  
+        <extension module="org.jboss.as.ee"/>
+        <extension module="org.jboss.as.ejb3"/>
+        <extension module="org.jboss.as.jaxrs"/>  
+        <extension module="org.jboss.as.jmx"/>  
+        <extension module="org.jboss.as.jpa"/>  
+        <extension module="org.jboss.as.logging"/>  
+        <extension module="org.jboss.as.naming"/>  
+        <extension module="org.jboss.as.osgi"/>  
+        <extension module="org.jboss.as.remoting"/>  
+        <extension module="org.jboss.as.sar"/>  
+        <extension module="org.jboss.as.security"/>  
+        <extension module="org.jboss.as.threads"/>  
+        <extension module="org.jboss.as.transactions"/>  
+        <extension module="org.jboss.as.web"/>  
+        <extension module="org.jboss.as.weld"/>  
+    </extensions>  
+    <profile>
+        <subsystem xmlns="urn:jboss:domain:datasources:1.0">  
+            <datasources>
+                <drivers>
+                    <driver name="derby" module="org.apache.derby.jdbc">
+                        <driver-class>org.apache.derby.jdbc.ClientDriver</driver-class>
+                    </driver>
+                </drivers>
+                <datasource jta="true" jndi-name="java:/jdbc/project1" pool-name="proj" enabled="true"
+                            use-java-context="true" use-ccm="true">
+                    <connection-url>jdbc:derby://localhost:1527/project1</connection-url>
+                    <driver>derby</driver>
+                    <security>
+                        <user-name>project1</user-name>
+                        <password>project1</password>
+                    </security>
+                    <statement>
+                        <prepared-statement-cache-size>32</prepared-statement-cache-size>
+                        <share-prepared-statements>true</share-prepared-statements>
+                    </statement>
+                </datasource>
+<!--                <datasource jndi-name="java:app/jdbc/project1" pool-name="OracleDS" enabled="true" jta="true" use-java-context="true" use-ccm="true"/>
+                <datasource jndi-name="java:app/jdbc/project1" pool-name="H2DS" enabled="true" jta="true" use-java-context="true" use-ccm="true">  
+                    <connection-url>  
+                        jdbc:h2:mem:test;DB_CLOSE_DELAY=-1  
+                    </connection-url>  
+                    <driver>  
+                        h2  
+                    </driver>  
+                    <pool>  
+                        <prefill>  
+                            false  
+                        </prefill>  
+                        <use-strict-min>  
+                            false  
+                        </use-strict-min>  
+                        <flush-strategy>  
+                            FailingConnectionOnly  
+                        </flush-strategy>  
+                    </pool>  
+                    <security>  
+                        <user-name>  
+                            sa  
+                        </user-name>  
+                        <password>  
+                            sa  
+                        </password>  
+                    </security>  
+                </datasource>-->
+                <!--<drivers>-->
+<!--                    <driver name="org.apache.derby" module="org.apache.derby">
+                        <xa-datasource-class>org.apache.derby.jdbc.ClientXADataSource</xa-datasource-class>
+                    </driver>-->
+<!--                    <driver name="ojdbc6-11.2.0.1.0" module="">  
+                        <xa-datasource-class>  
+                            oracle.jdbc.xa.client.OracleXADataSource  
+                        </xa-datasource-class>  
+                    </driver>  
+                    <driver name="h2" module="com.h2database.h2">  
+                        <xa-datasource-class>  
+                            org.h2.jdbcx.JdbcDataSource  
+                        </xa-datasource-class>  
+                    </driver>  -->
+                <!--</drivers>-->
+            </datasources>
+        </subsystem>
+    </profile>
+</server>

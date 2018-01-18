@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+    <drivers>
+        <driver name="derby" module="org.apache.derby.jdbc">
+            <driver-class>org.apache.derby.jdbc.ClientDriver</driver-class>
+        </driver>
+    </drivers>
+    <datasource jta="true" jndi-name="java:/jdbc/project1" pool-name="proj" enabled="true"
+                use-java-context="true" use-ccm="true">
+        <connection-url>jdbc:derby://localhost:1527/project1</connection-url>
+        <driver>derby</driver>
+        <security>
+            <user-name>project1</user-name>
+            <password>project1</password>
+        </security>
+        <statement>
+            <prepared-statement-cache-size>32</prepared-statement-cache-size>
+            <share-prepared-statements>true</share-prepared-statements>
+        </statement>
+    </datasource>
+</datasources>
