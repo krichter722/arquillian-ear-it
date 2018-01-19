@@ -6,9 +6,12 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form>
-            <h:commandButton value="Save new random" action="#{myManagedBean.save}"/>
-            <h:dataTable value="#{myManagedBean.allMyEntities}" var="myEntity">
+        <h:form id="mainForm">
+            <h:commandButton id="saveButton"
+                    value="Save new random"
+                    action="#{myManagedBean.save}"/>
+            <h:dataTable value="#{myManagedBean.allMyEntities}"
+                    var="myEntity">
                 <h:column>
                     #{myEntity.id}
                 </h:column>

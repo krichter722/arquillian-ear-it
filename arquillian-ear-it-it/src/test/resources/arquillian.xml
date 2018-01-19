@@ -32,4 +32,8 @@
             <property name="fish.payara.classloading.delegate">false</property>
         </configuration>
     </container>
+
+    <extension qualifier="webdriver">
+        <property name="browser">${browser}</property>
+    </extension>
 </arquillian>

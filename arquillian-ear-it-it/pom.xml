@@ -10,45 +10,15 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <version.org.wildfly>8.2.1.Final</version.org.wildfly>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <powermock.version>1.7.0RC4</powermock.version>
+        <version.org.jboss.arquillian>1.1.5.Final</version.org.jboss.arquillian>
+        <version.org.wildfly>8.1.0.Final</version.org.wildfly>
+        <version.junit>4.12</version.junit>
+        <browser>phantomjs</browser>
     </properties>
     <dependencies>
-        <!-- Java EE integration testing -->
-        <dependency>
-            <groupId>org.jboss.shrinkwrap.resolver</groupId>
-            <artifactId>shrinkwrap-resolver-api-maven</artifactId>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- Brought in via Arquillian BOM, see dependencyManagement section above -->
-        <dependency>
-            <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-container</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.arquillian.container</groupId>
-            <artifactId>arquillian-container-spi</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.arquillian.protocol</groupId>
-            <artifactId>arquillian-protocol-servlet</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.shrinkwrap.resolver</groupId>
-            <artifactId>shrinkwrap-resolver-depchain</artifactId>
-            <type>pom</type>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>richtercloud</groupId>
             <artifactId>arquillian-ear-it-jar</artifactId>
@@ -56,10 +26,194 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>
+                <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>6.1</version>
+        </dependency>
         <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <version>1.2</version>
+            <groupId>net.glxn</groupId>
+            <artifactId>qrgen</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>richtercloud</groupId>
+            <artifactId>validation-tools</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.11.0</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.2</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito2</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jmimemagic</groupId>
+            <artifactId>jmimemagic</artifactId>
+            <version>0.1.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-io</groupId>
+                    <artifactId>commons-io</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.imgscalr</groupId>
+            <artifactId>imgscalr-lib</artifactId>
+            <version>4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ocpsoft.prettytime</groupId>
+            <artifactId>prettytime</artifactId>
+            <version>3.2.7.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bitbucket.cowwoc</groupId>
+            <artifactId>diff-match-patch</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.rauschig</groupId>
+            <artifactId>jarchivelib</artifactId>
+            <version>0.7.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Java EE integration testing -->
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.descriptors</groupId>
+            <artifactId>shrinkwrap-descriptors-api-javaee</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-depchain</artifactId>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.graphene</groupId>
+            <artifactId>graphene-webdriver</artifactId>
+            <version>2.3.2</version>
+            <type>pom</type>
+            <scope>test</scope>
+            <exclusions>
+<!--                <exclusion>
+                    <groupId>org.arquillian.spacelift</groupId>
+                    <artifactId>arquillian-spacelift</artifactId>
+                </exclusion>-->
+<!--                <exclusion>
+                    <groupId>org.jboss.arquillian.extension</groupId>
+                    <artifactId>arquillian-drone-webdriver</artifactId>
+                </exclusion>-->
+                <exclusion>
+                    <groupId>com.codeborne</groupId>
+                    <artifactId>phantomjsdriver</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+<!--        <dependency>
+            <groupId>org.arquillian.spacelift</groupId>
+            <artifactId>arquillian-spacelift</artifactId>
+            <version>1.0.2</version>
+        </dependency>-->
+<!--        <dependency>
+            <groupId>org.jboss.arquillian.extension</groupId>
+            <artifactId>arquillian-drone-webdriver</artifactId>
+            <version>2.4.5-SNAPSHOT</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>htmlunit-driver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.htmlunit</groupId>
+            <artifactId>htmlunit</artifactId>
+            <version>2.26</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-firefox-driver</artifactId>
+        </dependency>
+<!--        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>20.0</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>richtercloud</groupId>
+            <artifactId>jsf-validation-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>richtercloud</groupId>
+            <artifactId>selenium-tools</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -67,14 +221,29 @@
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
-                <version>1.1.13.Final</version>
+                <version>1.1.14.Final</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.jboss.shrinkwrap.resolver</groupId>
-                <artifactId>shrinkwrap-resolver-bom</artifactId>
-                <version>3.0.0-beta-2</version>
+                <groupId>org.jboss.arquillian.selenium</groupId>
+                <artifactId>selenium-bom</artifactId>
+                <version>3.7.0</version>
+                    <!-- - 3.3.1, 3.2.0 and 3.1.0 cause   required: java.util.function.Function<? super org.openqa.selenium.WebDriver,V>
+                            found: org.openqa.selenium.support.ui.ExpectedCondition<org.openqa.selenium.WebElement>
+                            reason: cannot infer type-variable(s) V
+                            (argument mismatch; org.openqa.selenium.support.ui.ExpectedCondition<org.openqa.selenium.WebElement> cannot be converted to java.util.function.Function<? super org.openqa.selenium.WebDriver,V>)
+                    - 3.0.1 causes java.lang.IllegalAccessError: tried to access class org.openqa.selenium.os.ExecutableFinder from class org.openqa.selenium.phantomjs.PhantomJSDriverService when using phantomjs driver
+                    - 3.6.0 causes `Unrecognized platform: linux-unknown-64bit`
+                        which one is supposed to work around using 3.5.3
+                        <ref>https://github.com/SeleniumHQ/selenium/issues/4781</ref>-->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.extension</groupId>
+                <artifactId>arquillian-drone-bom</artifactId>
+                <version>2.4.3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -112,6 +281,12 @@
                         <version>2017.11.0-SNAPSHOT</version>
                         <scope>import</scope>
                         <type>pom</type>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>com.google.guava</groupId>
+                                <artifactId>guava</artifactId>
+                            </exclusion>
+                        </exclusions>
                     </dependency>
                 </dependencies>
             </dependencyManagement>
@@ -164,6 +339,14 @@
                             </execution>
                         </executions>
                     </plugin>
+<!--                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>3.0.2</version>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/wildfly-${version.org.wildfly}/standalone/configuration</outputDirectory>
+                        </configuration>
+                    </plugin>-->
                 </plugins>
             </build>
         </profile>
@@ -193,7 +376,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-dependency-plugin</artifactId>
-                        <version>3.0.1</version>
+                        <version>2.8</version>
                         <executions>
                             <execution>
                                <id>unpack</id>
@@ -230,6 +413,7 @@
                                 <module.path>${project.basedir}/target/wildfly-9.0.2.Final/modules</module.path>
                             </systemPropertyVariables>
                             <redirectTestOutputToFile>false</redirectTestOutputToFile>
+                            <trimStackTrace>false</trimStackTrace>
                         </configuration>
                     </plugin>        
                 </plugins>
@@ -250,6 +434,10 @@
                     <groupId>fish.payara.extras</groupId>
                     <artifactId>payara-embedded-all</artifactId>
                     <version>4.1.2.174</version>
+                        <!-- - 4.1.2.173 causes `java.lang.NoClassDefFoundError: fish/payara/nucleus/healthcheck/stuck/StuckThreadsStore`
+                            - 4.1.2.172 causes `java.lang.ClassNotFoundException: fish.payara.notification.eventbus.EventbusMessage`
+                            - 4.1.153 and 4.1.2.174 cause `java.lang.NullPointerException
+                            at org.omnifaces.application.OmniApplication.createValidator(OmniApplication.java:114)` when using OmniFaces -->
                     <scope>test</scope>
                 </dependency>
             </dependencies>
@@ -262,18 +450,6 @@
                         <directory>src/test/resources-glassfish-embedded</directory>
                     </testResource>
                 </testResources>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.20.1</version>
-                        <configuration>
-                            <systemPropertyVariables>
-                                <fish.payara.classloading.delegate>false</fish.payara.classloading.delegate>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </plugin>
-                </plugins>
             </build>
         </profile>
     </profiles>
@@ -286,8 +462,20 @@
                 <version>2.20.1</version>
                 <executions>
                     <execution>
+                        <id>functional-test</id>
+                        <phase>verify</phase>
                         <goals>
                             <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <forkCount>0</forkCount>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>verify</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>verify</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -304,6 +492,7 @@
                             <value>false</value>
                         </property>
                     </properties>
+                    <trimStackTrace>false</trimStackTrace>
                 </configuration>
             </plugin>
         </plugins>
