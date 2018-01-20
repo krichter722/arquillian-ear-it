@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import richtercloud.arquillian.ear.it.jar.MyEntity;
 import richtercloud.arquillian.ear.it.jar.SaveController;
 
@@ -12,7 +13,8 @@ import richtercloud.arquillian.ear.it.jar.SaveController;
  *
  * @author richter
  */
-@ManagedBean
+@Named
+@SessionScoped
 public class MyManagedBean implements Serializable {
     private static final long serialVersionUID = 1L;
     @EJB
