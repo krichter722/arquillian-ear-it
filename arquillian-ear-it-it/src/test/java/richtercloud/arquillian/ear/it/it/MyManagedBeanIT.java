@@ -28,8 +28,9 @@ public class MyManagedBeanIT {
     
     @Deployment(testable = false)
     public static Archive<?> createDeployment() {
-        EnterpriseArchive retValue = Maven.configureResolver().workOffline().resolve("richtercloud:arquillian-ear-it-ear:ear:1.0-SNAPSHOT").withoutTransitivity().asSingle(EnterpriseArchive.class);
+        EnterpriseArchive retValue = Maven.configureResolver().workOffline().resolve("richtercloud:arquillian-ear-it-ear:ear:1.0-SNAPSHOT").withTransitivity().asSingle(EnterpriseArchive.class);
         retValue.writeTo(System.out, Formatters.VERBOSE);
+            //web module in ear isn't listed, but present
         return retValue;
     }
 
