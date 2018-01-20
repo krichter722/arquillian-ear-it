@@ -12,7 +12,7 @@
         <property name="databaseName" value="target/databases/derby"/>
         <property name="createDatabase" value="create"/>
     </jdbc-connection-pool>-->
-    <jdbc-resource enabled="true" jndi-name="jdbc/arquillian-ear" object-type="user" pool-name="connectionPool">
+    <jdbc-resource enabled="true" jndi-name="jdbc/sample" object-type="user" pool-name="connectionPool">
         <description/>
     </jdbc-resource>
     <jdbc-connection-pool allow-non-component-callers="false" 
@@ -22,7 +22,7 @@
                           connection-leak-reclaim="false" 
                           connection-leak-timeout-in-seconds="0" 
                           connection-validation-method="auto-commit" 
-                          datasource-classname="org.apache.derby.jdbc.EmbeddedDataSource" 
+                          datasource-classname="org.apache.derby.jdbc.ClientDataSource"
                           fail-all-connections="false" 
                           idle-timeout-in-seconds="300" 
                           is-connection-validation-required="false" 
@@ -41,10 +41,10 @@
                           steady-pool-size="8" 
                           validate-atmost-once-period-in-seconds="0" 
                           wrap-jdbc-objects="false">
-        <property name="URL" value="jdbc:derby://localhost:1527/arquillian"/>
-        <property name="User" value="arquillian"/>
-        <property name="Password" value="arquillian"/>
-        <property name="databaseName" value="arquillian"/>
+        <property name="URL" value="jdbc:derby://localhost:1527/arquillianear"/>
+        <property name="User" value="arquillianear"/>
+        <property name="Password" value="arquillianear"/>
+        <property name="databaseName" value="arquillianear"/>
         <property name="portNumber" value="1527"/>
         <property name="serverName" value="localhost"/>
         <property name="connectionAttributes" value="create=true"/>
