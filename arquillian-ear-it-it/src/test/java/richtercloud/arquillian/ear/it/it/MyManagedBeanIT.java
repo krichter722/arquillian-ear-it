@@ -42,7 +42,7 @@ public class MyManagedBeanIT {
 
     @Test
     public void testWebFrontend() throws IOException {
-        browser.get(deploymentUrl+ "/index.xhtml");
+        browser.get(deploymentUrl+ "/arquillian-ear-it-web/index.xhtml");
         seleniumHelper.screenshot(browser);
         Assert.assertTrue(saveButton.isDisplayed());
     }
