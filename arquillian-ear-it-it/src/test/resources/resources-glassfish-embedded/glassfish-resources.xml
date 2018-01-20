@@ -22,7 +22,7 @@
                           connection-leak-reclaim="false" 
                           connection-leak-timeout-in-seconds="0" 
                           connection-validation-method="auto-commit" 
-                          datasource-classname="org.apache.derby.jdbc.ClientDataSource"
+                          datasource-classname="org.apache.derby.jdbc.EmbeddedDataSource"
                           fail-all-connections="false" 
                           idle-timeout-in-seconds="300" 
                           is-connection-validation-required="false" 
